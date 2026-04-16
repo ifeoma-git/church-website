@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Events from "./pages/Events";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import ChurchOfferings from "./pages/ChurchOfferings";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/gallery" element={<Gallery/>}/>
         <Route path="/contact" element={<Contact />} />
+        <Route path="/church-offerings" element={<ChurchOfferings />} />
       </Routes>
 
       <Footer />

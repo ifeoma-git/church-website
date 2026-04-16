@@ -18,30 +18,30 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus("");
 
     emailjs
       .send(
-        "YOUR_SERVICE_ID",   // Replace with your EmailJS Service ID
-        "YOUR_TEMPLATE_ID",  // Replace with your EmailJS Template ID
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         formData,
-        "YOUR_PUBLIC_KEY"    // Replace with your EmailJS Public Key
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       )
-      .then(
-        () => {
-          setStatus("Message sent successfully!");
-          setFormData({
-            from_name: "",
-            from_email: "",
-            message: "",
-          });
-          setLoading(false);
-        },
-        (error) => {
-          console.error(error);
-          setStatus("Failed to send message. Please try again.");
-          setLoading(false);
-        }
-      );
+      .then(() => {
+        setStatus("✅ Message sent successfully!");
+        setFormData({
+          from_name: "",
+          from_email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        setStatus("❌ Failed to send message. Please try again.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -86,14 +86,18 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="bg-blue-800 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
+          className="bg-blue-800 text-white px-6 py-3 rounded hover:bg-blue-700 transition disabled:opacity-50"
           disabled={loading}
         >
           {loading ? "Sending..." : "Send Message"}
         </button>
 
         {status && (
-          <p className="text-center text-green-600 font-semibold">
+          <p
+            className={`text-center font-semibold ${
+              status.includes("Failed") ? "text-red-600" : "text-green-600"
+            }`}
+          >
             {status}
           </p>
         )}

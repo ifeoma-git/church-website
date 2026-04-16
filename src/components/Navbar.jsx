@@ -26,11 +26,15 @@ const Navbar = () => {
           <NavLink to="/gallery" className={linkClass}>Gallery</NavLink>
           <NavLink to="/contact" className={linkClass}>Contact</NavLink>
           <NavLink
-            to="/donate"
-            className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-300 transition"
-          >
-            Donate
-          </NavLink>
+            to="/church-offerings"
+             className={({ isActive }) =>
+              isActive
+               ? "text-yellow-400 font-semibold"
+               : "text-white hover:text-yellow-300"
+            }
+           >
+            Church Offerings
+         </NavLink>
         </div>
 
         {/* Mobile Menu Button */}
