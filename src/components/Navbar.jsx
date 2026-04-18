@@ -25,16 +25,9 @@ const Navbar = () => {
           <NavLink to="/events" className={linkClass}>Events</NavLink>
           <NavLink to="/gallery" className={linkClass}>Gallery</NavLink>
           <NavLink to="/contact" className={linkClass}>Contact</NavLink>
-          <NavLink
-            to="/church-offerings"
-             className={({ isActive }) =>
-              isActive
-               ? "text-yellow-400 font-semibold"
-               : "text-white hover:text-yellow-300"
-            }
-           >
-            Church Offerings
-         </NavLink>
+          <NavLink to="/church-offerings" className={linkClass}>
+          Church Offerings
+        </NavLink>
         </div>
 
         {/* Mobile Menu Button */}
@@ -78,11 +71,11 @@ const Navbar = () => {
           <NavLink to="/gallery" className={linkClass} onClick={() => setIsOpen(false)}>Gallery</NavLink>
           <NavLink to="/contact" className={linkClass} onClick={() => setIsOpen(false)}>Contact</NavLink>
           <NavLink
-            to="/donate"
-            className="block bg-yellow-400 text-blue-900 px-4 py-2 rounded-full font-semibold text-center hover:bg-yellow-300 transition"
-            onClick={() => setIsOpen(false)}
+             to="/church-offerings"
+             className="block bg-yellow-400 text-blue-900 px-4 py-2 rounded-full font-semibold text-center hover:bg-yellow-300 transition"
+             onClick={() => setIsOpen(false)}
           >
-            Donate
+             Church Offerings
           </NavLink>
         </div>
       )}

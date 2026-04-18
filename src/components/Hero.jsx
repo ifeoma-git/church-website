@@ -22,10 +22,10 @@ const Hero = () => {
             Visit Us
           </Link>
           <Link
-            to="/donate"
-            className="bg-yellow-400 text-blue-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition"
+            to="/church-offerings"
+            className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition"
           >
-            Donate
+           Church Offering
           </Link>
         </div>
       </div>
