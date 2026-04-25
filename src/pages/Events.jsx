@@ -3,13 +3,13 @@ const events = [
     title: "Sunday Worship Service",
     date: "Every Sunday",
     time: "4:00 PM",
-    location: "Tampere, Finland",
+    location: "ICCK Church Hall, Tampere, Finland",
   },
   {
     title: "Prayer Meeting",
-    date: "Every Wednesday",
+    date: "First Saturday of Every Month",
     time: "6:00 PM",
-    location: "Church Hall",
+    location: "ICCK Church Hall",
   },
 ];
 
